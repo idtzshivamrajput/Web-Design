@@ -1,0 +1,22 @@
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+
+
+.a{
+	border: 2px solid;
+	width: 350px;
+	height: 500px;
+	border-image: url(../Image/ab1.jpg) 57 round;
+}
+a.img{
+	width: 100%;
+	height: 100%;
+}
