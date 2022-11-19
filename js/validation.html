@@ -1,100 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-	<title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="container">
+    <h1 class="text-center bg-info">Form validation Javscript</h1>
+    <div class="row">
+        <div class="col-md-4">
 
-	<div class="container">
-		<h1 class="text-center bg-info"> Form Validation Javascript</h1>
+        </div>
+        <div class="col-md-4">
+            <form action=""onsubmit="return validation()">
+                <div class="mb-3">
+                    
+                    <label for="">Username</label>
+                   <input type="text"required class="form-control" id="user"name="user">
 
-		<div class="row">
-			<div class="col-md-4">
-				
-			</div>
+                </div>
 
-			<div class="col-md-4">
-				<form action="" onsubmit="return validation()">
-					<div class="mb-3">
-						<label for="">Username</label>
-						<input type="text" class="form-control" id="user" required name="user">
-						<span id="username"></span>
-					</div>
+                <div class="mb-3">
+                    
+                    <label for="">Password</label>
+                   <input type="text"required class="form-control" id="pass" name="pass">
+                    <span id="password"></span>
+                </div>
 
-					<div class="mb-3">
-						<label for="">Password</label>
-						<input type="password" class="form-control" id="pass" required name="pass">
-						<span id="password"></span>
-					</div>
-
-					<div class="mb-3">
-						<label for="">Confirm Password</label>
-						<input type="password" class="form-control" id="cpassword" required name="cpassword">
-						<span id="cpass"></span>
-					</div>
+                <div class="mb-3">
+                    
+                    <label for=""> confirm Password</label>
+                   <input type="text"required class="form-control" id="cpassword"name="cpassword">
+                    <span id="cpass"></span>
+                </div>
 
 
-					<button class="btn btn-danger">Submit</button>
-				</form>
-				
-			</div>
+                <div class="mb-3">
+                    
+                    <label for="">Mobile No</label>
+                   <input max="10" type="text"required class="form-control" id="mobile"name="mobile">
+                    <span id="mobi"></span>
+                </div>
 
-			<div class="col-md-4">
-				
+                <button class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4">
 
-			</div>
-			
-		</div>
-		
-	</div>
-<script>
-	function validation(){
-		const user=document.getElementById('user').value
-		const pass=document.getElementById('pass').value
-		const cpassword=document.getElementById('cpassword').value
-		const mobileNumber=document.getElementById('pass').value
-		//console.log(user)
+        </div>
+    </div>
+  </div> 
+  
+  <script>
+    function validation(){
+        const user=document.getElementById("user").value
+        const pass=document.getElementById("pass").value
+        const cpassword=document.getElementById("cpassword").value
+        const mobile=document.getElementById("mobile").value
 
-		if((user.length <= 2) || (user.length > 20)) {
-				document.getElementById('username').innerHTML =" * Username must be between 2 and 20";
+
+        //  console.log(user)
+         if((user.length <= 2) || (user.length > 20)) {
+				document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
 				return false;	
 			}
-
-		if(!isNaN(user)){
+            if(!isNaN(user)){
 				document.getElementById('username').innerHTML =" ** only characters are allowed";
 				return false;
-			}	
-			//password validation
-
-
-		if((pass.length <= 8) || (pass.length > 20)) {
+			}
+        // password validation
+        if((pass.length <= 8) || (pass.length > 20)) {
 				document.getElementById('password').innerHTML =" ** Passwords lenght must be between  8 and 20";
 				return false;	
 			}
 
-		if(pass!=cpassword){
-			document.getElementById('cpass').innerHTML =" ** Passwords does not match";
-				return false;	
-
-		}	
-
-		if(isNaN(mobileNumber)){
-				document.getElementById('mobileno').innerHTML =" ** user must write digits only not characters";
+            if(pass!=cpassword){
+                document.getElementById("cpass").innerHTML="**Password does not match "
+                 ;
+                 return false;
+            }
+            if(isNaN(mobile)){
+				document.getElementById('mobi').innerHTML =" ** user must write digits only not characters";
+				return false;
+			}
+            if(mobile.length!=10){
+				document.getElementById('mobi').innerHTML =" ** Mobile Number must be 10 digits only";
 				return false;
 			}
 
-		if(mobileNumber.length!=10){
-				document.getElementById('mobileno').innerHTML =" ** Mobile Number must be 10 digits only";
-				return false;
-			}	
 
-
-	} 
-
-</script>
+           
+    }
+  </script>
 </body>
 </html>
